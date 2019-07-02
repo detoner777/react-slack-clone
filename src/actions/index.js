@@ -1,32 +1,27 @@
-import * as actionTypes from './types';
+import * as actionTypes from "./types";
 
-
-
-/*User Actions*/
-
+/* User Actions */
 export const setUser = user => {
-    return{
-        type: actionTypes.SET_USER,
-        payload: {
-            currentUser: user
-        }
-    };
+  return {
+    type: actionTypes.SET_USER,
+    payload: {
+      currentUser: user
+    }
+  };
 };
-
 
 export const clearUser = () => {
-    return {
-        type: actionTypes.CLEAR_USER
-    };
+  return {
+    type: actionTypes.CLEAR_USER
+  };
 };
 
-/*Channel Action*/
-
+/* Channel Actions */
 export const setCurrentChannel = channel => {
-    return {
+  return {
     type: actionTypes.SET_CURRENT_CHANNEL,
     payload: {
-        setCurrentChannel: channel
-     }
+      currentChannel: channel
     }
   }
+}
