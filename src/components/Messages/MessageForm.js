@@ -2,6 +2,8 @@ import React from "react";
 import uuidv4 from "uuid/v4";
 import firebase from "../../firebase";
 import { Segment, Button, Input } from "semantic-ui-react";
+import {Picker, emojiIndex } from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
 
 import FileModal from "./FileModal";
 import ProgressBar from "./ProgressBar";
@@ -17,7 +19,8 @@ class MessageForm extends React.Component {
     user: this.props.currentUser,
     loading: false,
     errors: [],
-    modal: false
+    modal: false,
+    emojiPicker: false
   };
 
   openModal = () => this.setState({ modal: true });
@@ -71,6 +74,10 @@ class MessageForm extends React.Component {
       });
     }
   };
+
+  handleToggPicker = () => {
+    this.setState({ emojiPicker: !this.state.emojiPicker});
+  }
 
   getPath = () => {
     if (this.props.isPrivateChannel) {
@@ -144,18 +151,27 @@ class MessageForm extends React.Component {
   };
 
   render() {
-    // prettier-ignore
-    const { errors, message, loading, modal, uploadState, percentUploaded } = this.state;
+  
+    const { errors, message, loading, modal,
+       uploadState, percentUploaded, emojiPicker} = this.state;
 
     return (
       <Segment className="message__form">
+        {emojiPicker && (
+          <Picker
+            set="apple"
+            className='emojipicker'
+            title='Pick your emoji'
+            emoji='point_up'
+            />
+        )}
         <Input
           fluid
           name="message"
           onChange={this.handleChange}
           value={message}
           style={{ marginBottom: "0.7em" }}
-          label={<Button icon={"add"} />}
+          label={<Button icon={"add"} onClick={this.handleToggPicker}/>}
           labelPosition="left"
           className={
             errors.some(error => error.message.includes("message"))
