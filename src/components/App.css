@@ -48,12 +48,12 @@ body,
 .progress__bar {
     margin: 0.3em 0 0 0 !important;
 }
-<<<<<<< HEAD
+
 /* Emoijpicker */
 .emojipicker {
     position: absolute;
 }
-=======
+
 
 /* ColorPanel.js */
 
@@ -128,4 +128,4 @@ body,
       opacity: 0;
     }
   }
->>>>>>> 67b96504990014734b63ebef1a1355b612f977c2
+
