@@ -71,6 +71,9 @@ class Channels extends React.Component {
 
   removeListeners = () => {
     this.state.channelsRef.off();
+    this.state.channel.forEach(channel => {
+      this.state.messagesRef.child(channel.id).off();
+    })
   };
 
   setFirstChannel = () => {
