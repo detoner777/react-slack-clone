@@ -1,3 +1,8 @@
+Full-stack chat application from front to back with React, Redux, Firebase 5, and Semantic UI React.
+              Some features: User Authentication with Firebase; Adding / Uploading Messages
+              with Media Files; Sending Direct Messages to Users; Display Animation when
+              Users Typing
+              
 You can see Demo https://react-slack-clone-18f3a.firebaseapp.com/
 
 
